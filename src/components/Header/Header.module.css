@@ -1,0 +1,10 @@
+.header {
+    background-color: lightblue;
+    display: flex;
+
+    width: 1200px;
+}
+
+.header img {
+    width: 50px;
+}

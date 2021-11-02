@@ -1,0 +1,15 @@
+.navbar {
+    background-color: aquamarine;
+   display: flex;
+    flex-direction: column;
+    flex: 0 1 100px;
+}
+
+.item {
+    text-decoration: none;
+    color: black;
+}
+
+.activeLink {
+    color: coral;
+}
