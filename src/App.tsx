@@ -5,16 +5,31 @@ import {Navbar} from "./components/Navbar/Navbar";
 import {Footer} from "./components/Footer/Footer";
 import {Routes} from "./components/pages/Routes";
 import {BrowserRouter} from "react-router-dom";
+import {DialogItemsDataType, MessagesDataType, PostsDataType} from "./state/state";
 
-function App() {
+type AppPropsType = {
+  messagesData: MessagesDataType
+  dialogItemsData: DialogItemsDataType
+  postsData: PostsDataType
+}
+
+const App = (props: AppPropsType) => {
+  const {
+    messagesData,
+    postsData,
+    dialogItemsData,
+  } = props
+
   return (
-
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
         <div className={'mainView'}>
           <Navbar/>
-          <Routes/>
+          <Routes messagesData={messagesData}
+                  postsData={postsData}
+                  dialogItemsData={dialogItemsData}
+          />
 
         </div>
         <Footer/>
