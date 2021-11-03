@@ -3,18 +3,18 @@ import styles from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileWallpapper} from "./ProfileWallpapper/ProfileWallpapper";
 import {ProfileInfo} from "./MyPosts/ProfileInfo/ProfileInfo";
-import {PostsDataType} from "../../state/state";
+import {ProfilePageType} from "../../state/state";
 
 type PropsType = {
-  postsData: PostsDataType
+  profilePage: ProfilePageType
 }
 
-export const Profile:FC<PropsType> = ({postsData}) => {
+export const Profile: FC<PropsType> = ({profilePage}) => {
   return (
     <div className={styles.profile}>
       <ProfileWallpapper/>
       <ProfileInfo/>
-      <MyPosts postsData={postsData}/>
+      <MyPosts profilePage={profilePage}/>
     </div>
   );
 };

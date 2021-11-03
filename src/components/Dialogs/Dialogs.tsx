@@ -5,16 +5,18 @@ import {Messages} from "./Messages/Messages";
 import {DialogItemsDataType, MessagesDataType} from "../../state/state";
 
 type PropsType = {
-  messagesData: MessagesDataType
-  dialogItemsData: DialogItemsDataType
+  messagesPage: {
+    messagesData: MessagesDataType
+    dialogItemsData: DialogItemsDataType
+  }
 }
 
 
-export const Dialogs: FC<PropsType> = ({dialogItemsData,messagesData}) => {
+export const Dialogs: FC<PropsType> = ({messagesPage}) => {
   return (
     <div className={styles.dialogs}>
-      <DialogItems dialogItemsData={dialogItemsData}/>
-      <Messages messagesData={messagesData}/>
+      <DialogItems dialogItemsData={messagesPage.dialogItemsData}/>
+      <Messages messagesData={messagesPage.messagesData}/>
     </div>
   );
 };

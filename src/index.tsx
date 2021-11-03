@@ -5,10 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from "./state/state";
 
-ReactDOM.render(<App messagesData={state.messagesPage.messagesData}
-                     dialogItemsData={state.messagesPage.dialogItemsData}
-                     postsData={state.profilePage.postsData}
-/>, document.getElementById('root'));
+ReactDOM.render(<App state={state}/>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

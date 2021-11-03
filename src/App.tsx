@@ -1,36 +1,24 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {Navbar} from "./components/Navbar/Navbar";
 import {Footer} from "./components/Footer/Footer";
 import {Routes} from "./components/pages/Routes";
 import {BrowserRouter} from "react-router-dom";
-import {DialogItemsDataType, MessagesDataType, PostsDataType} from "./state/state";
+import {StateType} from "./state/state";
 
 type AppPropsType = {
-  messagesData: MessagesDataType
-  dialogItemsData: DialogItemsDataType
-  postsData: PostsDataType
+  state: StateType
 }
 
-const App = (props: AppPropsType) => {
-  const {
-    messagesData,
-    postsData,
-    dialogItemsData,
-  } = props
-
+const App: FC<AppPropsType> = ({state}) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
         <div className={'mainView'}>
           <Navbar/>
-          <Routes messagesData={messagesData}
-                  postsData={postsData}
-                  dialogItemsData={dialogItemsData}
-          />
-
+          <Routes state={state}/>
         </div>
         <Footer/>
       </div>

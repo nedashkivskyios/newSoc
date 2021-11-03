@@ -1,23 +1,29 @@
-import React, {FC} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import {Post} from "./Post/Post";
 import styles from "./MyPosts.module.css"
-import {PostsDataType} from "../../../state/state";
+import {ProfilePageType} from "../../../state/state";
 
 
 type PropsType = {
-  postsData: PostsDataType
-
+  profilePage: ProfilePageType
 }
-export const MyPosts: FC<PropsType> = ({postsData}) => {
+export const MyPosts: FC<PropsType> = ({profilePage}) => {
+
+  const onAddPostButtonClickHandler = () => {
+    alert("add post")
+  }
+  const onTAChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    alert(e.currentTarget.value)
+  }
   return (
     <div>
       <h3>My posts</h3>
       <div>
-        <textarea name="myposts" id="myposts"/>
-        <button>+</button>
+        <textarea onChange={onTAChangeHandler} value={profilePage.newPostText} name="myposts" id="myposts"/>
+        <button onClick={onAddPostButtonClickHandler}>+</button>
       </div>
       <div className={styles.posts}>
-        {postsData.map((el, i) => <Post key={`${el.id}-${i}`} title={el.title}/>)}
+        {profilePage.postsData.map((el, i) => <Post key={`${el.id}-${i}`} title={el.title}/>)}
       </div>
     </div>
   );

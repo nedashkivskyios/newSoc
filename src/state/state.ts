@@ -6,6 +6,7 @@ let state: StateType = {
       {id: 1, title: "im fine and U ?"},
       {id: 1, title: "ta tozhe"},
     ],
+    newPostText: "",
   },
   messagesPage: {
     // messages data
@@ -23,25 +24,24 @@ let state: StateType = {
       {id: 4, title: "Nekras"},
     ],
   },
-
-
-
 }
 
-export default state
 
 //TYPES
 // state type
 export type StateType = {
-  profilePage: {
-    postsData: PostsDataType
-  }
+  profilePage: ProfilePageType
   messagesPage: {
     messagesData: MessagesDataType
     dialogItemsData: DialogItemsDataType
   }
+}
 
 
+// TYPES
+export type ProfilePageType = {
+  postsData: PostsDataType
+  newPostText: string
 }
 // messages TYPES
 export type MessageType = {
@@ -63,3 +63,6 @@ export type PostType = {
   title: string
 }
 export type PostsDataType = Array<PostType>
+
+
+export default state
