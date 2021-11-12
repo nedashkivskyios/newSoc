@@ -7,14 +7,15 @@ import {ProfilePageType} from "../../state/state";
 
 type PropsType = {
   profilePage: ProfilePageType
+  changePostText: (text: string) => void
 }
 
-export const Profile: FC<PropsType> = ({profilePage}) => {
+export const Profile: FC<PropsType> = ({profilePage, changePostText}) => {
   return (
     <div className={styles.profile}>
       <ProfileWallpapper/>
       <ProfileInfo/>
-      <MyPosts profilePage={profilePage}/>
+      <MyPosts changePostText={changePostText} profilePage={profilePage}/>
     </div>
   );
 };

@@ -37,7 +37,10 @@ export type StateType = {
   }
 }
 
-
+export const changePostText = (text: string) => {
+  console.log('changePostText')
+  state.profilePage.newPostText = text
+}
 // TYPES
 export type ProfilePageType = {
   postsData: PostsDataType

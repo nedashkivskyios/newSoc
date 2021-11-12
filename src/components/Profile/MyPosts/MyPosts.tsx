@@ -6,14 +6,20 @@ import {ProfilePageType} from "../../../state/state";
 
 type PropsType = {
   profilePage: ProfilePageType
+  changePostText: (text: string) => void
 }
-export const MyPosts: FC<PropsType> = ({profilePage}) => {
+export const MyPosts: FC<PropsType> = (props) => {
+
+  const {
+    profilePage,
+    changePostText,
+  } = props
 
   const onAddPostButtonClickHandler = () => {
     alert("add post")
   }
   const onTAChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    alert(e.currentTarget.value)
+    changePostText(e.currentTarget.value)
   }
   return (
     <div>
