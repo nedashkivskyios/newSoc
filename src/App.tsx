@@ -1,9 +1,11 @@
 import React, {FC} from 'react';
 import './App.css';
-import {Navbar} from "./components/Navbar/Navbar";
-import {Routes} from "./components/pages/Routes";
+import {Navbar} from "./components/NavbarView/Navbar/Navbar";
+import {Routes} from "./components/ContentView/Routes";
 import {BrowserRouter} from "react-router-dom";
 import {StateType} from "./state/state";
+import NavbarView from "./components/NavbarView/NavbarView";
+import {ContentView} from "./components/ContentView/ContentView";
 
 type AppPropsType = {
   state: StateType
@@ -14,10 +16,8 @@ const App: FC<AppPropsType> = ({state, changePostText}) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
-        <div className={'mainView'}>
-          <Navbar/>
-          <Routes changePostText={changePostText} state={state}/>
-        </div>
+        <NavbarView/>
+        <ContentView/>
       </div>
     </BrowserRouter>
   );

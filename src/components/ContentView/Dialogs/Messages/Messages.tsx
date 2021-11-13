@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import styles from "./Messages.module.css";
 import {Message} from "./Message/Message";
-import {MessagesDataType} from "../../../state/state";
+import {MessagesDataType} from "../../../../state/state";
 
 type PropsType = {
   messagesData: MessagesDataType

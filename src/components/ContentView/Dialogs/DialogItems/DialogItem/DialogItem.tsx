@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import styles from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
-import {NAVIGATION_PATH} from "../../../pages/Routes";
+import {NAVIGATION_PATH} from "../../../Routes";
 
 type PropsType = {
   id: number

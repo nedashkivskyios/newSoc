@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC} from 'react';
 import {Post} from "./Post/Post";
 import styles from "./MyPosts.module.css"
-import {ProfilePageType} from "../../../state/state";
+import {ProfilePageType} from "../../../../state/state";
 
 
 type PropsType = {

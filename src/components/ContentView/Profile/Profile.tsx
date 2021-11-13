@@ -3,7 +3,7 @@ import styles from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileWallpapper} from "./ProfileWallpapper/ProfileWallpapper";
 import {ProfileInfo} from "./MyPosts/ProfileInfo/ProfileInfo";
-import {ProfilePageType} from "../../state/state";
+import {ProfilePageType} from "../../../state/state";
 
 type PropsType = {
   profilePage: ProfilePageType

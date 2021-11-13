@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import {Profile} from "../Profile/Profile";
-import {Dialogs} from "../Dialogs/Dialogs";
+import {Profile} from "./Profile/Profile";
+import {Dialogs} from "./Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 import {StateType} from "../../state/state";
 
