@@ -1,7 +1,5 @@
 import React, {FC} from 'react';
 import './App.css';
-import {Navbar} from "./components/NavbarView/Navbar/Navbar";
-import {Routes} from "./components/ContentView/Routes";
 import {BrowserRouter} from "react-router-dom";
 import {StateType} from "./state/state";
 import NavbarView from "./components/NavbarView/NavbarView";

@@ -19,24 +19,9 @@ html, body {
 
 .app-wrapper {
     width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mainView {
-    background-color: antiquewhite;
-    display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 1200px;
-    min-height: 100vh;
-}
-
-.contentView {
-    background-color: bisque;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
 }
