@@ -1,10 +1,15 @@
+let rerenderEntireTree = (state: StateType) => {
+  console.log('adf')
+}
+
+
 let state: StateType = {
   profilePage: {
 // posts data
     postsData: [
       {id: 1, title: "hey how are you ?"},
-      {id: 1, title: "im fine and U ?"},
-      {id: 1, title: "ta tozhe"},
+      {id: 2, title: "im fine and U ?"},
+      {id: 3, title: "ta tozhe"},
     ],
     newPostText: "",
   },
@@ -26,6 +31,25 @@ let state: StateType = {
   },
 }
 
+export const changePostText = (text: string) => {
+  console.log('changePostText')
+  state.profilePage.newPostText = text
+  rerenderEntireTree(state)
+}
+
+export const addPost = () => {
+  let newPost = {
+    id: 4,
+    title: state.profilePage.newPostText
+  }
+  state.profilePage.postsData.push(newPost)
+  state.profilePage.newPostText = ""
+  rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: (state: StateType) => void) => {
+  rerenderEntireTree = observer;
+}
 
 //TYPES
 // state type
@@ -35,11 +59,6 @@ export type StateType = {
     messagesData: MessagesDataType
     dialogItemsData: DialogItemsDataType
   }
-}
-
-export const changePostText = (text: string) => {
-  console.log('changePostText')
-  state.profilePage.newPostText = text
 }
 // TYPES
 export type ProfilePageType = {

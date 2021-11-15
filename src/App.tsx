@@ -8,14 +8,15 @@ import {ContentView} from "./components/ContentView/ContentView";
 type AppPropsType = {
   state: StateType
   changePostText: (text: string) => void
+  addPost: () => void
 }
 
-const App: FC<AppPropsType> = ({state, changePostText}) => {
+const App: FC<AppPropsType> = ({state, changePostText, addPost}) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <NavbarView/>
-        <ContentView state={state} changePostText={changePostText}/>
+        <ContentView state={state} addPost={addPost} changePostText={changePostText}/>
       </div>
     </BrowserRouter>
   );

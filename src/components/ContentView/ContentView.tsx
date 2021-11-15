@@ -7,13 +7,14 @@ import {StateType} from "../../state/state";
 type PropsType = {
   state: StateType
   changePostText: (text: string) => void
+  addPost: () => void
 }
 
-export const ContentView: FC<PropsType> = ({state, changePostText}) => {
+export const ContentView: FC<PropsType> = ({state, changePostText, addPost}) => {
   return (
     <div className={styles.contentView}>
-      <ContentViewHeader />
-      <Routes state={state} changePostText={changePostText} />
+      <ContentViewHeader/>
+      <Routes state={state} addPost={addPost} changePostText={changePostText}/>
     </div>
   );
 };

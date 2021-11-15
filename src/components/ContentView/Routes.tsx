@@ -13,12 +13,14 @@ export enum NAVIGATION_PATH {
 type PropsType = {
   state: StateType
   changePostText: (text: string) => void
+  addPost: () => void
 }
 
-export const Routes: FC<PropsType> = ({state, changePostText}) => {
+export const Routes: FC<PropsType> = ({state, changePostText, addPost}) => {
   return (
     <div className={styles.contentViewMain}>
-      <Route path={NAVIGATION_PATH.profile} render={() => <Profile changePostText={changePostText} profilePage={state.profilePage}/>}/>
+      <Route path={NAVIGATION_PATH.profile} render={() => <Profile addPost={addPost} changePostText={changePostText}
+                                                                   profilePage={state.profilePage}/>}/>
       <Route path={NAVIGATION_PATH.dialogs} render={() => <Dialogs messagesPage={state.messagesPage}/>}/>
     </div>
   );
