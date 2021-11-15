@@ -15,7 +15,7 @@ const App: FC<AppPropsType> = ({state, changePostText}) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <NavbarView/>
-        <ContentView/>
+        <ContentView state={state} changePostText={changePostText}/>
       </div>
     </BrowserRouter>
   );

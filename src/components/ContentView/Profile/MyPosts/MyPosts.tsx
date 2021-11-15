@@ -19,6 +19,7 @@ export const MyPosts: FC<PropsType> = (props) => {
     alert("add post")
   }
   const onTAChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    debugger
     changePostText(e.currentTarget.value)
   }
   return (

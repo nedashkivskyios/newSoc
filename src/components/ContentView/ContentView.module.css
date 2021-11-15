@@ -1,5 +1,13 @@
+/*styles for content wrapper*/
 .contentView {
     display: flex;
-    background-color: #FFFFFF;
     flex-direction: column;
+    width: 100%;
+}
+
+/*styles for router*/
+.contentViewMain {
+    display: flex;
+    max-width: 100%;
+    padding: 5px;
 }
