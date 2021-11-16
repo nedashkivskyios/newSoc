@@ -1,27 +1,26 @@
 import React, {ChangeEvent, FC} from 'react';
 import {Post} from "./Post/Post";
 import styles from "./MyPosts.module.css"
-import {ProfilePageType} from "../../../../state/state";
+import {ActionTypes, addPostAC, changePostTextAC, ProfilePageType} from "../../../../state/state";
 
 
 type PropsType = {
   profilePage: ProfilePageType
-  changePostText: (text: string) => void
-  addPost: () => void
+  dispatch: (action: ActionTypes) => void
 }
+
 export const MyPosts: FC<PropsType> = (props) => {
 
   const {
     profilePage,
-    changePostText,
-    addPost,
+    dispatch,
   } = props
 
   const onAddPostButtonClickHandler = () => {
-    addPost()
+    dispatch(addPostAC())
   }
   const onTAChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    changePostText(e.currentTarget.value)
+    dispatch(changePostTextAC(e.currentTarget.value))
   }
 
   return (

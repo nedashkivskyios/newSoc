@@ -1,21 +1,20 @@
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import state, {addPost, changePostText, StateType, subscribe} from "./state/state";
+import store from "./state/state";
 import ReactDOM from "react-dom";
 import App from "./App";
 import React from "react";
 
 
-export const rerenderEntireTree = (state: StateType) => {
-  ReactDOM.render(<App state={state}
-                       changePostText={changePostText}
-                       addPost={addPost}
+export const rerenderEntireTree = () => {
+  ReactDOM.render(<App state={store.getState()}
+                       dispatch={store.dispatch.bind(store)}
     />,
     document.getElementById('root'));
 }
 
-subscribe(rerenderEntireTree);
-rerenderEntireTree(state)
+store.subscribe(rerenderEntireTree);
+rerenderEntireTree()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
