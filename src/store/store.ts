@@ -1,3 +1,8 @@
-export let store = {
-
+export enum AC_TYPES {
+  ADD_POST = 'ADD-POST',
+  CHANGE_POST_TEXT = 'CHANGE-POST-TEXT',
+  CHANGE_MESSAGE_TEXT = 'CHANGE-MESSAGE-TEXT',
+  ADD_MESSAGE = 'ADD-MESSAGE',
 }
+
+export let store = {}

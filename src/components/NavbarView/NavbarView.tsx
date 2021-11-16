@@ -7,9 +7,9 @@ import {NavbarFooter} from "./NavbarFooter/NavbarFooter";
 const NavbarView = () => {
   return (
     <div className={styles.navbarView}>
-      <NavbarHeader />
-      <Navbar />
-      <NavbarFooter />
+      <NavbarHeader/>
+      <Navbar/>
+      <NavbarFooter/>
     </div>
   );
 };

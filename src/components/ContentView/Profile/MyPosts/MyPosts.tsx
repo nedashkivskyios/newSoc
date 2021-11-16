@@ -1,12 +1,13 @@
 import React, {ChangeEvent, FC} from 'react';
 import {Post} from "./Post/Post";
 import styles from "./MyPosts.module.css"
-import {ActionTypes, addPostAC, changePostTextAC, ProfilePageType} from "../../../../state/state";
+import {ProfilePageType} from "../../../../state/state";
+import {addPostAC, changePostTextAC} from "../../../../store/profileReducer/profileReducer";
 
 
 type PropsType = {
   profilePage: ProfilePageType
-  dispatch: (action: ActionTypes) => void
+  dispatch: (action: any) => void
 }
 
 export const MyPosts: FC<PropsType> = (props) => {

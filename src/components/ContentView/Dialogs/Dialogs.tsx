@@ -2,11 +2,11 @@ import React, {FC} from 'react';
 import styles from './Dialogs.module.css'
 import {DialogItems} from "./DialogItems/DialogItems";
 import {Messages} from "./Messages/Messages";
-import {ActionTypes, DialogItemsDataType, MessagePageType, MessagesDataType} from "../../../state/state";
+import {MessagePageType} from "../../../state/state";
 
 type PropsType = {
   messagesPage: MessagePageType
-  dispatch: (action: ActionTypes) => void
+  dispatch: (action: any) => void
 }
 
 

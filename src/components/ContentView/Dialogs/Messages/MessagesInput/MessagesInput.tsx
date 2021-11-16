@@ -1,12 +1,11 @@
 import React, {ChangeEvent, FC} from "react";
 import styles from './MessagesInput.module.css'
-import {ActionTypes, addMessageAC, changeMessageTextAC} from "../../../../../state/state";
+import {addMessageAC, changeMessageTextAC} from "../../../../../store/messagesReducer/messagesReducer";
 
 type PropsType = {
   newMessageText: string
-  dispatch: (action: ActionTypes) => void
+  dispatch: (action: any) => void
 }
-
 
 
 export const MessagesInput: FC<PropsType> = ({newMessageText, dispatch}) => {

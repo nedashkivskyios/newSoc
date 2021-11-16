@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {Profile} from "./Profile/Profile";
 import {Dialogs} from "./Dialogs/Dialogs";
 import {Route} from "react-router-dom";
-import {ActionTypes, StateType} from "../../state/state";
+import {StateType} from "../../state/state";
 import styles from './ContentView.module.css'
 
 export enum NAVIGATION_PATH {
@@ -12,7 +12,7 @@ export enum NAVIGATION_PATH {
 
 type PropsType = {
   state: StateType
-  dispatch: (action: ActionTypes) => void
+  dispatch: (action: any) => void
 }
 
 export const Routes: FC<PropsType> = ({state, dispatch}) => {

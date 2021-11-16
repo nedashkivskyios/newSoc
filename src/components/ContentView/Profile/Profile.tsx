@@ -3,11 +3,11 @@ import styles from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileWallpapper} from "./ProfileWallpapper/ProfileWallpapper";
 import {ProfileInfo} from "./MyPosts/ProfileInfo/ProfileInfo";
-import {ActionTypes, ProfilePageType} from "../../../state/state";
+import {ProfilePageType} from "../../../state/state";
 
 type PropsType = {
   profilePage: ProfilePageType
-  dispatch: (action: ActionTypes) => void
+  dispatch: (action: any) => void
 }
 
 export const Profile: FC<PropsType> = ({profilePage, dispatch}) => {
