@@ -1,3 +1,6 @@
+import {profileReducer} from "../store/profileReducer/profileReducer";
+import {messagesReducer} from "../store/messagesReducer/messagesReducer";
+
 export enum AC_TYPES {
   ADD_POST = 'ADD-POST',
   CHANGE_POST_TEXT = 'CHANGE-POST-TEXT',
@@ -28,7 +31,7 @@ let store = {
         {id: 3, title: "Fox"},
         {id: 4, title: "Nekras"},
       ],
-      newMessageText: '',
+      newMessageText: "",
     },
   },
   _callSubscriber() {
@@ -43,38 +46,10 @@ let store = {
   },
 
   dispatch(action: ActionTypes) {
-    switch (action.type) {
-      case AC_TYPES.ADD_POST: {
-        const newPost = {
-          id: 4,
-          title: this._state.profilePage.newPostText,
-        }
-        this._state.profilePage.postsData.push(newPost)
-        this._state.profilePage.newPostText = ""
-        this._callSubscriber()
-        break
-      }
-      case AC_TYPES.CHANGE_POST_TEXT: {
-        this._state.profilePage.newPostText = action.text
-        this._callSubscriber()
-        break
-      }
-      case AC_TYPES.CHANGE_MESSAGE_TEXT: {
-        this._state.messagesPage.newMessageText = action.text
-        this._callSubscriber()
-        break
-      }
-      case AC_TYPES.ADD_MESSAGE: {
-        const newMessage = {id: 1, message: this._state.messagesPage.newMessageText}
-        this._state.messagesPage.messagesData.push(newMessage)
-        this._state.messagesPage.newMessageText = ''
-        this._callSubscriber()
-        break
-      }
-      default: {
-        throw new Error('AC_TYPE wrong')
-      }
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+    this._callSubscriber()
+
   },
 }
 
