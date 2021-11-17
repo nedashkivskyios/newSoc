@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import styles from "./DialogItems.module.css";
 import {DialogItem} from "./DialogItem/DialogItem";
-import {DialogItemsDataType} from "../../../../state/state";
+import {DialogItemsDataType} from "../../../../store/messagesReducer/messagesReducer";
 
 type PropsType = {
   dialogItemsData: DialogItemsDataType

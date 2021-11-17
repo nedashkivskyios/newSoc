@@ -1,13 +1,18 @@
-import {ProfilePageType} from "../../state/state";
 import {AC_TYPES} from "../store";
 
-export const profileReducer = (state: ProfilePageType, action: ProfileReducerActionTypes): ProfilePageType => {
+let initialState: ProfilePageType = {
+    postsData: [
+      {id: 1, title: "hey how are you ?"},
+      {id: 2, title: "im fine and U ?"},
+      {id: 3, title: "ta tozhe"},
+    ],
+    newPostText: "",
+}
+
+export const profileReducer = (state = initialState, action: ProfileReducerActionTypes): ProfilePageType => {
   switch (action.type) {
     case AC_TYPES.ADD_POST: {
-      const newPost = {
-        id: 4,
-        title: state.newPostText,
-      }
+      const newPost = {id: 4, title: state.newPostText }
       return {
         ...state,
         postsData: [newPost, ...state.postsData],
@@ -40,3 +45,14 @@ export const changePostTextAC = (text: string) => {
 export type ProfileReducerActionTypes =
   ReturnType<typeof addPostAC>
   | ReturnType<typeof changePostTextAC>
+
+export type ProfilePageType = {
+  postsData: PostsDataType
+  newPostText: string
+}
+
+export type PostType = {
+  id: number
+  title: string
+}
+export type PostsDataType = Array<PostType>

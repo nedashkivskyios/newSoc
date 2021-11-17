@@ -1,23 +1,20 @@
 import React, {FC} from 'react';
 import './App.css';
-import {BrowserRouter} from "react-router-dom";
-import {StateType} from "./state/state";
 import NavbarView from "./components/NavbarView/NavbarView";
 import {ContentView} from "./components/ContentView/ContentView";
+import {AllActionsType, AppStateType} from "./store/store";
 
 type AppPropsType = {
-  state: StateType
-  dispatch: (action: any) => void
+  state: AppStateType
+  dispatch: (action: AllActionsType) => void
 }
 
 const App: FC<AppPropsType> = ({state, dispatch}) => {
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <NavbarView/>
         <ContentView state={state} dispatch={dispatch}/>
       </div>
-    </BrowserRouter>
   );
 }
 

@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
 import styles from "./Messages.module.css";
 import {Message} from "./Message/Message";
-import {MessagesDataType} from "../../../../state/state";
 import {MessagesInput} from "./MessagesInput/MessagesInput";
+import {MessagesDataType} from "../../../../store/messagesReducer/messagesReducer";
+import {AllActionsType} from "../../../../store/store";
 
 type PropsType = {
   messagesData: MessagesDataType
   newMessageText: string
-  dispatch: (action: any) => void
+  dispatch: (action: AllActionsType) => void
 }
 
 export const Messages: FC<PropsType> = ({messagesData, newMessageText, dispatch}) => {

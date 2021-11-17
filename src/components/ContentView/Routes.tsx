@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {Profile} from "./Profile/Profile";
 import {Dialogs} from "./Dialogs/Dialogs";
 import {Route} from "react-router-dom";
-import {StateType} from "../../state/state";
 import styles from './ContentView.module.css'
+import {AllActionsType, AppStateType} from "../../store/store";
 
 export enum NAVIGATION_PATH {
   profile = '/profile',
@@ -11,17 +11,15 @@ export enum NAVIGATION_PATH {
 }
 
 type PropsType = {
-  state: StateType
-  dispatch: (action: any) => void
+  state: AppStateType
+  dispatch: (action: AllActionsType) => void
 }
 
-export const Routes: FC<PropsType> = ({state, dispatch}) => {
+export const Routes: FC<PropsType> = ({state,dispatch}) => {
   return (
     <div className={styles.contentViewMain}>
-      <Route path={NAVIGATION_PATH.profile} render={() => <Profile dispatch={dispatch}
-                                                                   profilePage={state.profilePage}/>}/>
-      <Route path={NAVIGATION_PATH.dialogs} render={() => <Dialogs messagesPage={state.messagesPage}
-                                                                   dispatch={dispatch}/>}/>
+      <Route path={NAVIGATION_PATH.profile} element={<Profile profilePage={state.profile} dispatch={dispatch}/>}/>
+      <Route path={NAVIGATION_PATH.dialogs} element={<Dialogs messagesPage={state.messages} dispatch={dispatch}/>}/>
     </div>
   );
 };
