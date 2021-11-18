@@ -2,19 +2,20 @@ import React, {FC} from 'react';
 import './App.css';
 import NavbarView from "./components/NavbarView/NavbarView";
 import {ContentView} from "./components/ContentView/ContentView";
-import {AllActionsType, AppStateType} from "./store/store";
+import {StoreStateType} from "./store/store";
 
 type AppPropsType = {
-  state: AppStateType
-  dispatch: (action: AllActionsType) => void
+  store: StoreStateType
 }
 
-const App: FC<AppPropsType> = ({state, dispatch}) => {
+const App: FC<AppPropsType> = ({store}) => {
+
+
   return (
-      <div className="app-wrapper">
-        <NavbarView/>
-        <ContentView state={state} dispatch={dispatch}/>
-      </div>
+    <div className="app-wrapper">
+      <NavbarView/>
+      <ContentView store={store}/>
+    </div>
   );
 }
 

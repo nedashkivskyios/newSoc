@@ -2,18 +2,17 @@ import React, {FC} from 'react';
 import styles from './ContentView.module.css'
 import {ContentViewHeader} from "./ContentViewHeader/ContentViewHeader";
 import {RoutesMain} from "./RoutesMain";
-import {AllActionsType, AppStateType} from "../../store/store";
+import {StoreStateType} from "../../store/store";
 
 type PropsType = {
-  state: AppStateType
-  dispatch: (action: AllActionsType) => void
+  store: StoreStateType
 }
 
-export const ContentView: FC<PropsType> = ({state, dispatch}) => {
+export const ContentView: FC<PropsType> = ({store}) => {
   return (
     <div className={styles.contentView}>
       <ContentViewHeader/>
-      <RoutesMain state={state} dispatch={dispatch}/>
+      <RoutesMain store={store}/>
     </div>
   );
 };

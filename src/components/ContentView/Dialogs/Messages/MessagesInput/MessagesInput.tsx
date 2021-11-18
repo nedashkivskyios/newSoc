@@ -1,21 +1,20 @@
 import React, {ChangeEvent, FC} from "react";
 import styles from './MessagesInput.module.css'
-import {AllActionsType} from "../../../../../store/store";
-import {addMessageAC, changeMessageTextAC} from "../../../../../store/messagesReducer/messagesReducer";
 
 type PropsType = {
   newMessageText: string
-  dispatch: (action: AllActionsType) => void
+  onAddMessageButtonClick: () => void
+  onChangeMessageText: (text: string) => void
 }
 
 
-export const MessagesInput: FC<PropsType> = ({newMessageText, dispatch}) => {
+export const MessagesInput: FC<PropsType> = ({newMessageText, onChangeMessageText, onAddMessageButtonClick}) => {
 
   const onChangeMessageTextHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(changeMessageTextAC(e.currentTarget.value))
+    onChangeMessageText(e.currentTarget.value)
   }
   const onAddMessageButtonClickHandler = () => {
-    dispatch(addMessageAC())
+    onAddMessageButtonClick()
   }
 
   return (

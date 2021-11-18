@@ -1,25 +1,19 @@
 import React, {FC} from 'react';
 import styles from './Dialogs.module.css'
 import {DialogItems} from "./DialogItems/DialogItems";
-import {Messages} from "./Messages/Messages";
-import {MessagesPageType} from "../../../store/messagesReducer/messagesReducer";
-import {AllActionsType} from "../../../store/store";
+import {StoreStateType} from "../../../store/store";
+import {MessagesContainer} from "./Messages/MessagesContainer";
 
 type PropsType = {
-  messagesPage: MessagesPageType
-  dispatch: (action: AllActionsType) => void
+  store: StoreStateType
 }
 
 
-export const Dialogs: FC<PropsType> = ({messagesPage,dispatch}) => {
+export const Dialogs: FC<PropsType> = ({store}) => {
   return (
     <div className={styles.dialogs}>
-      <DialogItems dialogItemsData={messagesPage.dialogItemsData}/>
-      <Messages messagesData={messagesPage.messagesData}
-                newMessageText={messagesPage.newMessageText}
-                dispatch={dispatch}
-
-      />
+      <DialogItems dialogItemsData={store.getState().messages.dialogItemsData}/>
+      <MessagesContainer store={store}/>
     </div>
   );
 };
