@@ -1,4 +1,3 @@
-import React from 'react';
 import {addPostAC, changePostTextAC, ProfilePageType} from "../../../../store/profileReducer/profileReducer";
 import {AppStateType} from "../../../../store/store";
 import {MyPosts} from "./MyPosts";
@@ -18,10 +17,10 @@ type mapDispatchToPropsType = {
 }
 const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => ({
   onAddPostButtonClick: () => {
-    addPostAC()
+    dispatch(addPostAC())
   },
   onTAChange: (text: string) => {
-    changePostTextAC(text)
+    dispatch(changePostTextAC(text))
   },
 })
 

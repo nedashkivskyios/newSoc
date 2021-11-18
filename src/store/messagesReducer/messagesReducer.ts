@@ -19,7 +19,6 @@ let initialState: MessagesPageType = {
 }
 
 export const messagesReducer = (state = initialState, action: MessagesReducerActionTypes): MessagesPageType => {
- debugger
   switch (action.type) {
     case AC_TYPES.CHANGE_MESSAGE_TEXT: {
       return {

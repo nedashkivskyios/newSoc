@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppStateType} from "../../../../store/store";
 import {addMessageAC, changeMessageTextAC, MessagesDataType} from "../../../../store/messagesReducer/messagesReducer";
 import {Dispatch} from "redux";
@@ -21,10 +20,10 @@ type mapDispatchToPropsType = {
 
 const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => ({
   onChangeMessageText: (text: string) => {
-    changeMessageTextAC(text)
+    dispatch(changeMessageTextAC(text))
   },
   onAddMessageButtonClick: () => {
-    addMessageAC()
+    dispatch(addMessageAC())
   },
 })
 

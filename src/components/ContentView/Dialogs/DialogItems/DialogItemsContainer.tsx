@@ -1,4 +1,3 @@
-import React from 'react';
 import {DialogItemsDataType} from "../../../../store/messagesReducer/messagesReducer";
 import {DialogItems} from "./DialogItems";
 import {AppStateType} from "../../../../store/store";
@@ -15,7 +14,7 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
 
 type mapDispatchToPropsType = {}
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({})
+const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => ({})
 
 export const DialogItemsContainer = connect(mapStateToProps, mapDispatchToProps)(DialogItems)
 
