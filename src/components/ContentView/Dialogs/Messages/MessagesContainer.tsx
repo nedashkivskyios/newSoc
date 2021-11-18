@@ -1,26 +1,31 @@
-import React, {FC} from 'react';
-import {StoreStateType} from "../../../../store/store";
+import React from 'react';
+import {AppStateType} from "../../../../store/store";
+import {addMessageAC, changeMessageTextAC, MessagesDataType} from "../../../../store/messagesReducer/messagesReducer";
+import {Dispatch} from "redux";
+import {connect} from "react-redux";
 import {Messages} from "./Messages";
-import {addMessageAC, changeMessageTextAC} from "../../../../store/messagesReducer/messagesReducer";
 
-type PropsType = {
-  store: StoreStateType
+type mapStateToPropsType = {
+  messagesData: MessagesDataType
+  newMessageText: string
+}
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
+  messagesData: state.messages.messagesData,
+  newMessageText: state.messages.newMessageText,
+})
+
+type mapDispatchToPropsType = {
+  onChangeMessageText: (text: string) => void,
+  onAddMessageButtonClick: () => void,
 }
 
-export const MessagesContainer: FC<PropsType> = ({store}) => {
-  let state = store.getState()
-  const onChangeMessageText = (text: string) => {
-    store.dispatch(changeMessageTextAC(text))
-  }
-  const onAddMessageButtonClick = () => {
-    store.dispatch(addMessageAC())
-  }
-  return (
-    <Messages messagesData={state.messages.messagesData}
-              newMessageText={state.messages.newMessageText}
-              onChangeMessageText={onChangeMessageText}
-              onAddMessageButtonClick={onAddMessageButtonClick}
-    />
+const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => ({
+  onChangeMessageText: (text: string) => {
+    changeMessageTextAC(text)
+  },
+  onAddMessageButtonClick: () => {
+    addMessageAC()
+  },
+})
 
-  );
-};
+export const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)

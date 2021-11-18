@@ -1,20 +1,13 @@
-import React, {FC} from 'react';
+import React from 'react';
 import './App.css';
 import NavbarView from "./components/NavbarView/NavbarView";
 import {ContentView} from "./components/ContentView/ContentView";
-import {StoreStateType} from "./store/store";
 
-type AppPropsType = {
-  store: StoreStateType
-}
-
-const App: FC<AppPropsType> = ({store}) => {
-
-
+const App = () => {
   return (
     <div className="app-wrapper">
       <NavbarView/>
-      <ContentView store={store}/>
+      <ContentView/>
     </div>
   );
 }

@@ -1,29 +1,30 @@
-import React, {FC} from 'react';
-import {addPostAC, changePostTextAC} from "../../../../store/profileReducer/profileReducer";
-import {StoreStateType} from "../../../../store/store";
+import React from 'react';
+import {addPostAC, changePostTextAC, ProfilePageType} from "../../../../store/profileReducer/profileReducer";
+import {AppStateType} from "../../../../store/store";
 import {MyPosts} from "./MyPosts";
+import {connect} from "react-redux";
+import {Dispatch} from "redux";
 
-
-type PropsType = {
-  store: StoreStateType
+type mapStateToPropsType = {
+  profilePage: ProfilePageType
 }
+const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
+  profilePage: state.profile,
+})
 
-export const MyPostsContainer: FC<PropsType> = ({store}) => {
-  const state = store.getState()
+type mapDispatchToPropsType = {
+  onAddPostButtonClick: () => void
+  onTAChange: (text: string) => void
+}
+const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => ({
+  onAddPostButtonClick: () => {
+    addPostAC()
+  },
+  onTAChange: (text: string) => {
+    changePostTextAC(text)
+  },
+})
 
-  const onAddPostButtonClick = () => {
-    store.dispatch(addPostAC())
-  }
-  const onTAChange = (text: string) => {
-    store.dispatch(changePostTextAC(text))
-  }
-
-  return (
-    <MyPosts profilePage={state.profile}
-             onAddPostButtonClick={onAddPostButtonClick}
-             onTAChange={onTAChange}
-    />
-  );
-};
+export const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
 
