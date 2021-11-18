@@ -3,22 +3,20 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom";
 import App from "./App";
 import React from "react";
-import store, {AppStateType} from "./store/store";
+import store from "./store/store";
 import {BrowserRouter} from "react-router-dom";
 
-// let rerenderEntireTree = (state: AppStateType) => {
+export const rerenderEntireTree = () => {
   ReactDOM.render(
-    <BrowserRouter>
-      <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
-    </BrowserRouter>,
-    document.getElementById('root'));
-// }
+      <BrowserRouter>
+        <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+      </BrowserRouter>,
+    document.getElementById('root')
+  );
+}
+rerenderEntireTree()
 
-// rerenderEntireTree(store.getState())
-// store.subscribe(() => {
-//   let state = store.getState()
-//   rerenderEntireTree(state);
-// })
+store.subscribe(rerenderEntireTree)
 
 
 // If you want to start measuring performance in your app, pass a function

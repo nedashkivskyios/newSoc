@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import styles from './Navbar.module.css'
-import {NAVIGATION_PATH} from "../../ContentView/Routes";
+import {NAVIGATION_PATH} from "../../ContentView/RoutesMain";
 
 export const Navbar = () => {
   return (

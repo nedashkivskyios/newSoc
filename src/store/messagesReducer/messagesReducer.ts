@@ -1,4 +1,7 @@
-import {AC_TYPES} from "../store";
+enum AC_TYPES {
+  CHANGE_MESSAGE_TEXT = 'CHANGE-MESSAGE-TEXT',
+  ADD_MESSAGE = 'ADD-MESSAGE',
+}
 
 let initialState: MessagesPageType = {
   messagesData: [

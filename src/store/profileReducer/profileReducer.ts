@@ -1,4 +1,7 @@
-import {AC_TYPES} from "../store";
+enum AC_TYPES {
+  ADD_POST = 'ADD-POST',
+  CHANGE_POST_TEXT = 'CHANGE-POST-TEXT',
+}
 
 let initialState: ProfilePageType = {
     postsData: [
@@ -9,7 +12,7 @@ let initialState: ProfilePageType = {
     newPostText: "",
 }
 
-export const profileReducer = (state = initialState, action: ProfileReducerActionTypes): ProfilePageType => {
+export const profileReducer = (state:ProfilePageType = initialState, action: ProfileReducerActionTypes): ProfilePageType => {
   switch (action.type) {
     case AC_TYPES.ADD_POST: {
       const newPost = {id: 4, title: state.newPostText }
