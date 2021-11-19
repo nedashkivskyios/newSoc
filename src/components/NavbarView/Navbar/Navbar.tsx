@@ -8,28 +8,22 @@ export const Navbar = () => {
     <div className={styles.navbar}>
       <div>
         <NavLink className={styles.item}
-
-
                  to={NAVIGATION_PATH.profile}>Profile</NavLink>
       </div>
       <div>
         <NavLink className={styles.item}
-
                  to={NAVIGATION_PATH.dialogs}>Dialogs</NavLink>
       </div>
       <div>
         <NavLink className={styles.item}
-
+                 to={NAVIGATION_PATH.users}>Users</NavLink>
+      </div>
+      <div>
+        <NavLink className={styles.item}
                  to={'/news'}>News</NavLink>
       </div>
       <div>
         <NavLink className={styles.item}
-
-                 to={'/users'}>Users</NavLink>
-      </div>
-      <div>
-        <NavLink className={styles.item}
-
                  to={'/settings'}>Settings</NavLink>
       </div>
     </div>
